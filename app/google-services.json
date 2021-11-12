@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1097515884981-56706gqep1rqgs1bj49mm0eb0gjlo5ia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrilife",
+            "certificate_hash": "c8d0933bfd8866aba2d5dd9c0f3f62e81e0955cf"
+          }
+        },
+        {
           "client_id": "1097515884981-cgt182ha3h0b6a3dafku3vbs46c0g4a6.apps.googleusercontent.com",
           "client_type": 3
         }

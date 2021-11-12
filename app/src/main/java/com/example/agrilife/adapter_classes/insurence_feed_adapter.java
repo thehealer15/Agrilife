@@ -2,18 +2,15 @@ package com.example.agrilife.adapter_classes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agrilife.DetailsFragment;
@@ -75,10 +72,10 @@ public class insurence_feed_adapter extends RecyclerView.Adapter<insurence_feed_
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             policyName = itemView.findViewById(R.id.policyName);
-            policyType  = itemView.findViewById(R.id.policyType);
+            policyType  = itemView.findViewById(R.id.policyDesc);
             CSR = itemView.findViewById(R.id.claim_settlement_ratio);
             ASR = itemView.findViewById(R.id.amount_settlement_ratio);
-            premiumStartFrom = itemView.findViewById(R.id.policyPremiumStartsFrom);
+            premiumStartFrom = itemView.findViewById(R.id.planId);
         }
     }
     private  void Fragment_Transaction() {

@@ -23,7 +23,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/policyType"
+            android:id="@+id/policyDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5sp"
@@ -31,7 +31,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/policyPremiumStartsFrom"
+            android:id="@+id/planId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5sp"

@@ -8,24 +8,11 @@ public class insuranceModel {
     private String targetEntity ; // equipment insurance or crop insurance
     private int premiumLowerBound;
     private double claimSettlementRatio ,amountSettlementRatio;
-    private UUID planId;
+    private String planId;
     private int waitingPeriodInDays;
     private int noClaimBonus;
 
     public insuranceModel() {
-    }
-
-    public insuranceModel(String policyName, String policyDescription, int policyCover, String targetEntity, int premiumLowerBound, double claimSettlementRatio, double amountSettlementRatio, UUID planId, int waitingPeriodInDays, int noClaimBonus) {
-        this.policyName = policyName;
-        this.policyDescription = policyDescription;
-        this.policyCover = policyCover;
-        this.targetEntity = targetEntity;
-        this.premiumLowerBound = premiumLowerBound;
-        this.claimSettlementRatio = claimSettlementRatio;
-        this.amountSettlementRatio = amountSettlementRatio;
-        this.planId = planId;
-        this.waitingPeriodInDays = waitingPeriodInDays;
-        this.noClaimBonus = noClaimBonus;
     }
 
     public String getPolicyName() {
@@ -72,7 +59,6 @@ public class insuranceModel {
         return claimSettlementRatio;
     }
 
-
     public void setClaimSettlementRatio(double claimSettlementRatio) {
         this.claimSettlementRatio = claimSettlementRatio;
     }
@@ -85,11 +71,11 @@ public class insuranceModel {
         this.amountSettlementRatio = amountSettlementRatio;
     }
 
-    public UUID getPlanId() {
+    public String getPlanId() {
         return planId;
     }
 
-    public void setPlanId(UUID planId) {
+    public void setPlanId(String planId) {
         this.planId = planId;
     }
 
@@ -106,6 +92,19 @@ public class insuranceModel {
     }
 
     public void setNoClaimBonus(int noClaimBonus) {
+        this.noClaimBonus = noClaimBonus;
+    }
+
+    public insuranceModel(String policyName, String policyDescription, int policyCover, String targetEntity, int premiumLowerBound, double claimSettlementRatio, double amountSettlementRatio, String planId, int waitingPeriodInDays, int noClaimBonus) {
+        this.policyName = policyName;
+        this.policyDescription = policyDescription;
+        this.policyCover = policyCover;
+        this.targetEntity = targetEntity;
+        this.premiumLowerBound = premiumLowerBound;
+        this.claimSettlementRatio = claimSettlementRatio;
+        this.amountSettlementRatio = amountSettlementRatio;
+        this.planId = planId;
+        this.waitingPeriodInDays = waitingPeriodInDays;
         this.noClaimBonus = noClaimBonus;
     }
 }
