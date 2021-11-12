@@ -2,10 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:background="@drawable/bg"
-    android:elevation="5dp"
-    app:cardCornerRadius="0dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,14 +15,24 @@
         android:orientation="vertical"
         android:padding="10sp">
 
-        <TextView
-            android:id="@+id/policyName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:text="@string/policy_name"
-            android:textSize="16sp" />
+            android:elevation="30dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/policyName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:padding="5sp"
+                android:text="@string/policy_name"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/policyDesc"

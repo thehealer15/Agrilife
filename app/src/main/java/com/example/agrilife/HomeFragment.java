@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,9 @@ public class HomeFragment extends Fragment {
 //    ArrayList<insuranceModel> feed_list = new ArrayList<>();
 //    insurence_feed_adapter adapter;
 
+    public interface ItemClickListener {
+        void onClick(View view, int position, boolean isLongClick);
+    }
 
     public HomeFragment() {
         // Required empty public constructor
@@ -79,7 +84,8 @@ public class HomeFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "APPLY FOR IT!", Toast.LENGTH_SHORT).show();;
+                        Toast.makeText(mContext, "APPLY FOR IT!", Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
@@ -105,6 +111,7 @@ public class HomeFragment extends Fragment {
             claim_settlement_ratio=itemView.findViewById(R.id.claim_settlement_ratio);
             amount_settlement_ratio=itemView.findViewById(R.id.amount_settlement_ratio);
         }
+
     }
 
     @Override
@@ -118,4 +125,8 @@ public class HomeFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
+
+
+
 }
