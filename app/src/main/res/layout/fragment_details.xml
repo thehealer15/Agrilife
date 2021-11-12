@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--     int premiumLowerBound, double claimSettlementRatio, double amountSettlementRatio, -->
+<!--    UUID planId, int waitingPeriodInDays, int noClaimBonus-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10sp"
+    tools:context=".DetailsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/policyName_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="Policy Name appear here"
+        android:padding="10sp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/policyDescription_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="policy description appears here"
+        android:padding="10sp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/policyTargetEntity_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="is policy for crop? or animals? equipement"
+        android:padding="10sp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/policyCover_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="Max cover of policy"
+        android:padding="10sp"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/policyCSR_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            android:hint="Claim Settlement Ratio"
+            android:padding="10sp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/policyASR_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            android:hint="Amount Settlement Ratio"
+            android:padding="10sp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/policyNoClaimBonus_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            android:hint="No Claim Bonus"
+            android:padding="10sp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/policywaitingPeriod_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            android:hint="Waiting Period"
+            android:padding="10sp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buy_insurance_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Buy Insurance"
+        app:rippleColor="@color/teal_200" />
+    </ScrollView>
+</LinearLayout>
