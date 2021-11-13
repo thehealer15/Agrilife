@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.agrilife.model_classes.insuranceModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -87,9 +88,6 @@ public class HomeFragment extends Fragment {
                         Intent i = new Intent(mContext, Insurance_details.class);
                         i.putExtra("model",  model);
                         startActivity(i);
-
-                        Toast.makeText(mContext, "APPLY FOR IT!", Toast.LENGTH_SHORT).show();
-
                     }
                 });
             }
@@ -129,8 +127,5 @@ public class HomeFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
-
-
-
 
 }

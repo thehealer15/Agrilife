@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.Map;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentData;
+import com.razorpay.PaymentResultListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 /**
  * It will be dashboard to see which insurance farmer made also facility to request a call from expert
  * So in dashboard :
@@ -35,7 +47,7 @@ import java.util.Map;
  *  - pay premium
  *  - claim request on small window
  * */
-public class DashBoard extends Fragment {
+public class DashBoard extends Fragment   {
     View parentHolder;
     Context mContext;
     Map<String,Object> userInfo;
@@ -43,7 +55,6 @@ public class DashBoard extends Fragment {
     private TextView profile_name,profile_email,profile_phone,profile_address;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter adapter;
-
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -67,6 +78,10 @@ public class DashBoard extends Fragment {
         profile_email=parentHolder.findViewById(R.id.profile_email);
         String uidi=FirebaseAuth.getInstance().getUid().toString();
         DocumentReference db = FirebaseFirestore.getInstance().collection("USERS").document(uidi);
+        Checkout.preload(getContext());
+
+
+
 
         db.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                           @Override
@@ -109,7 +124,54 @@ public class DashBoard extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "CLICK IT!", Toast.LENGTH_SHORT).show();
+                        // add bottom sheet activity first
+                        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+                        bottomSheetDialog.setContentView(R.layout.plan_details_bottom_sheet);
+                        bottomSheetDialog.setCanceledOnTouchOutside(true);
+
+                        // varibales inside bottom sheet
+                        TextView policyName_bottomSheet_tv = bottomSheetDialog.findViewById(R.id.planName_bottom_sheet);
+                        Button payPremium_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.pay_premium_bottom_sheet),
+                                claimInsurance_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.claim_insurance_bottom_sheet),
+                                seeDetails_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.see_plan_details_bottom_sheet);
+
+                        payPremium_bottomSheet_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(getActivity(),PaymentActivity.class));
+                            }
+                        });
+
+                        // code to implementation of claiming insurance:
+                        claimInsurance_bottomSheet_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+                                builder1.setTitle("Claim requested!");
+                                builder1.setMessage("Now let your company do work ! please sit back and wait for our agent to contact you !!");
+                                builder1.setCancelable(true);
+
+                                builder1.setNegativeButton(
+                                        "okay",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                            }
+                                        });
+
+                                AlertDialog alert11 = builder1.create();
+                                alert11.show();
+                            }
+                        });
+                        bottomSheetDialog.show();
+
+                        seeDetails_bottomSheet_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        });
 
                     }
                 });
@@ -146,4 +208,8 @@ public class DashBoard extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
+
+
+
 }

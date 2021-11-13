@@ -36,6 +36,10 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -144,9 +148,10 @@ public class AdviseFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        crop.setText(response);
+                        Gson gson = new Gson();
+                        JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                        crop.setText(jsonObject.get("crop").toString());
                         crop.setVisibility(View.VISIBLE);
-                        Toast.makeText(mContext,response,Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -195,7 +200,6 @@ public class AdviseFragment extends Fragment {
                             APIcall(api_humidity,api_temprature);
                             humidity.setText(api_humidity);
                             temperature.setText(api_temprature);
-                            Toast.makeText(mContext,api_humidity,Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                             forlocation.setText(e.getMessage());
@@ -203,15 +207,13 @@ public class AdviseFragment extends Fragment {
 
                         }
 
-
-//                        Toast.makeText(MainActivity.this,response,Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(mContext,"this "+ error.getMessage(),Toast.LENGTH_LONG).show();
-
+                        Snackbar.make(getActivity().findViewById(android.R.id.content),
+                                error.getMessage(), Snackbar.LENGTH_LONG).show();
                     }
                 }){
             @Override
@@ -263,30 +265,28 @@ public class AdviseFragment extends Fragment {
                     }
                 });
             } else {
-                Toast.makeText(mContext, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().findViewById(android.R.id.content),
+                        "Please turn on  your location...", Snackbar.LENGTH_LONG).show();
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
             }
         } else {
-            // if permissions aren't available,
-            // request for permissions
+
             requestPermissions();
         }
     }
 
     @SuppressLint("MissingPermission")
     private void requestNewLocationData() {
-
-        // Initializing LocationRequest
-        // object with appropriate methods
+        /* Initializing LocationRequest object
+        */
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(5);
         mLocationRequest.setFastestInterval(0);
         mLocationRequest.setNumUpdates(1);
 
-        // setting LocationRequest
-        // on FusedLocationClient
+        // setting LocationRequest  on FusedLocationClient
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(mContext);
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
@@ -306,22 +306,14 @@ public class AdviseFragment extends Fragment {
     // method to check for permissions
     private boolean checkPermissions() {
         return ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+ }
 
-        // If we want background location
-        // on Android 10.0 and higher,
-        // use:
-        // ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
-    }
-
-    // method to request for permissions
     private void requestPermissions() {
         requestPermissions( new String[]{
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_ID);
     }
 
-    // method to check
-    // if location is enabled
     private boolean isLocationEnabled() {
         LocationManager locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
