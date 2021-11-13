@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
     Context mContext;
     RecyclerView insurance_feed_recycler_view;
     private FirebaseFirestore firebaseFirestore;
-    FirestoreRecyclerAdapter adapter;
+    private FirestoreRecyclerAdapter adapter;
 //    ArrayList<insuranceModel> feed_list = new ArrayList<>();
 //    insurence_feed_adapter adapter;
 

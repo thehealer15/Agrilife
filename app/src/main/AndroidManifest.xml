@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriLife">
         <activity
+            android:name=".opted_insurance_cardview"
+            android:exported="true" />
+        <activity
             android:name=".Insurance_details"
             android:exported="true" />
         <activity

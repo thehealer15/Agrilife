@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.agrilife.model_classes.insuranceModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -38,7 +39,9 @@ public class Insurance_details extends AppCompatActivity {
         model= (insuranceModel) getIntent().getSerializableExtra("model");
 
         firebaseFirestore=FirebaseFirestore.getInstance();
-        DocumentReference docIdRef = firebaseFirestore.collection("farmer_policies").document(model.getPlanId());
+        String uidi= FirebaseAuth.getInstance().getUid().toString();
+
+        DocumentReference docIdRef = firebaseFirestore.collection("farmer_policies").document(uidi).collection("policies_opted").document(model.getPlanId());
 
         applied_already=findViewById(R.id.alreadyApplied);
         policyName = findViewById(R.id.policyName);
@@ -94,7 +97,10 @@ public class Insurance_details extends AppCompatActivity {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseFirestore.collection("farmer_policies").document(model.getPlanId()).set(model);
+//                firebaseFirestore.collection("farmer_policies").collection(uidi).document(model.getPlanId()).set(model);
+                firebaseFirestore.collection("farmer_policies").document(uidi).collection("policies_opted").document(model.getPlanId()).set(model);
+
+
                 Toast.makeText(getApplicationContext(), " Applied !!! ", Toast.LENGTH_SHORT).show();
 
                 applied_already.setVisibility(View.VISIBLE);
