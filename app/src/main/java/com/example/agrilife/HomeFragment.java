@@ -84,6 +84,10 @@ public class HomeFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent i = new Intent(mContext, Insurance_details.class);
+                        i.putExtra("model",  model);
+                        startActivity(i);
+
                         Toast.makeText(mContext, "APPLY FOR IT!", Toast.LENGTH_SHORT).show();
 
                     }

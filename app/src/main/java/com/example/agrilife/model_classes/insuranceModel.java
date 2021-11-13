@@ -1,8 +1,9 @@
 package com.example.agrilife.model_classes;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class insuranceModel {
+public class insuranceModel implements Serializable {
     private String policyName , policyDescription;
     private int policyCover;
     private String targetEntity ; // equipment insurance or crop insurance
