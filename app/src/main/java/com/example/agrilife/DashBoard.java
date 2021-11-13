@@ -134,7 +134,7 @@ public class DashBoard extends Fragment   {
                         Button payPremium_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.pay_premium_bottom_sheet),
                                 claimInsurance_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.claim_insurance_bottom_sheet),
                                 seeDetails_bottomSheet_btn = bottomSheetDialog.findViewById(R.id.see_plan_details_bottom_sheet);
-
+                        policyName_bottomSheet_tv.setText(model.getPolicyName());
                         payPremium_bottomSheet_btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -169,7 +169,9 @@ public class DashBoard extends Fragment   {
                         seeDetails_bottomSheet_btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
+                                Intent i = new Intent(mContext, Insurance_details.class);
+                                i.putExtra("model",  model);
+                                startActivity(i);
                             }
                         });
 
