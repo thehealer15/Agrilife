@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Agrilife/Agrilife/app/src/main/res/layout/fragment_advise.xml" value="0.25416666666666665" />
+        <entry key="..\:/Agrilife/Agrilife/app/src/main/res/layout/login_activity.xml" value="0.13020833333333334" />
         <entry key="..\:/Projects/AgriLife/Agrilife/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Projects/AgriLife/Agrilife/app/src/main/res/layout/insurance_feed_cardview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.26666666666666666" />
