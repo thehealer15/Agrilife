@@ -6,7 +6,9 @@ Our product will have various insurance plans for farmers for farming equipment 
 Important thing about our app is, many crop - insurance plans offered have an obligation to follow suggested crop by our app which is given by Machine learning model and expert monitored.
 We intend to make insurance purchase by using smart contracts to make system more quick ,  responding also to develop trust amongst farmers
 
-
+## Installation Instructions  
+- check [repl](https://replit.com/join/nyucmmwtkx-saymyname002) which is hosting the API for crop recommendation
+- clone this project to your local machine and lauch the app using Android Studio 
 
 ## Features
 
