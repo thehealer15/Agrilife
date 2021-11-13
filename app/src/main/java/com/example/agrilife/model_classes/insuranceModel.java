@@ -12,6 +12,7 @@ public class insuranceModel implements Serializable {
     private String planId;
     private int waitingPeriodInDays;
     private int noClaimBonus;
+    private String applied_date;
 
     public insuranceModel() {
     }
@@ -96,7 +97,15 @@ public class insuranceModel implements Serializable {
         this.noClaimBonus = noClaimBonus;
     }
 
-    public insuranceModel(String policyName, String policyDescription, int policyCover, String targetEntity, int premiumLowerBound, double claimSettlementRatio, double amountSettlementRatio, String planId, int waitingPeriodInDays, int noClaimBonus) {
+    public String getApplied_date() {
+        return applied_date;
+    }
+
+    public void setApplied_date(String applied_date) {
+        this.applied_date = applied_date;
+    }
+
+    public insuranceModel(String policyName, String policyDescription, int policyCover, String targetEntity, int premiumLowerBound, double claimSettlementRatio, double amountSettlementRatio, String planId, int waitingPeriodInDays, int noClaimBonus, String applied_date) {
         this.policyName = policyName;
         this.policyDescription = policyDescription;
         this.policyCover = policyCover;
@@ -107,6 +116,7 @@ public class insuranceModel implements Serializable {
         this.planId = planId;
         this.waitingPeriodInDays = waitingPeriodInDays;
         this.noClaimBonus = noClaimBonus;
+        this.applied_date = applied_date;
     }
 }
 

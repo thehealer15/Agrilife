@@ -31,8 +31,15 @@ public class newLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_login);
 
+
         username =(EditText) findViewById(R.id.editTextTextEmailAddress);
         mAuth= FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser()!=null){
+
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
+
         password = (EditText) findViewById(R.id.editTextTextPassword);
         login = findViewById(R.id.button);
         login.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +87,7 @@ public class newLogin extends AppCompatActivity {
                             FirebaseUser userref = mAuth.getCurrentUser();
                             String userID =userref.getUid();
                             String currentusername  = "someusernamefornow";
-                            Toast.makeText(getApplicationContext(), "Current user is :" + currentusername, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), "Current user is :" + currentusername, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);
 
