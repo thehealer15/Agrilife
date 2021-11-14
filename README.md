@@ -44,7 +44,7 @@ it's an API taking 7 parameters mainly weather info, soil information which farm
 - dataset from kaggle
 
 ## Screeshots Of Working Application
-![App Screenshot](/Agrilife/DemoImages/AgriLife5.jpg )
+![App Screenshot](/Agrilife/DemoImages/AgriLife5.jpg width="150" height="150")
 ![App Screenshot](/Agrilife/DemoImages/AgriLife6.jpg)
 ![App Screenshot](/Agrilife/DemoImages/AgriLife4.jpg)
 ![App Screenshot](/Agrilife/DemoImages/AgriLife3.jpg)
