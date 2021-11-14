@@ -191,10 +191,25 @@ public class AdviseFragment extends Fragment {
                             JSONObject jObject = new JSONObject(response);
                             JSONArray json2 = jObject.getJSONArray("data");
                             JSONObject json3 = json2.getJSONObject(0);
-                            Double rh = (Double) json3.get("rh");
-                            String apihumidity = Double.toString(rh);
-                            Double temp = (Double) json3.get("temp");
-                            String apitemprature = Double.toString(temp);
+                            String apihumidity;
+                            try {
+                                Double rh = (Double) json3.get("rh");
+                                apihumidity = Double.toString(rh);
+                            }
+                            catch(ClassCastException e){
+                                Integer rh = (Integer) json3.get("rh");
+                                apihumidity = Integer.toString(rh);
+                            }
+                            String apitemprature ;
+                            try {
+                                Double temp = (Double) json3.get("temp");
+                                apitemprature = Double.toString(temp);
+                            }
+                            catch (ClassCastException e){
+                                Integer temp = (Integer) json3.get("temp");
+                                apitemprature = Integer.toString(temp);
+
+                            }
                             api_humidity = apihumidity;
                             api_temprature = apitemprature;
                             APIcall(api_humidity,api_temprature);
