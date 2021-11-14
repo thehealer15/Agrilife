@@ -43,6 +43,15 @@ it's an API taking 7 parameters mainly weather info, soil information which farm
 - KNN algorithm for creating crop recommendation machine learning model
 - dataset from kaggle
 
+## Screeshots Of Working Application
+![App Screenshot](/Agrilife/DemoImages/AgriLife5.jpg )
+![App Screenshot](/Agrilife/DemoImages/AgriLife6.jpg)
+![App Screenshot](/Agrilife/DemoImages/AgriLife4.jpg)
+![App Screenshot](/Agrilife/DemoImages/AgriLife3.jpg)
+![App Screenshot](/Agrilife/DemoImages/AgriLife2.jpg)
+![App Screenshot](/Agrilife/DemoImages/AgriLife1.jpg)
+
+
 
 ## Creators and Contribution
 - Akshay Pawar :- Implementation of skeleton of app and premium payment ,backend of crop recommendation API based on ml model. 
