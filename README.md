@@ -9,8 +9,9 @@ We intend to make insurance purchase by using smart contracts to make system mor
 
 ## Installation Instructions  
 - check [repl](https://replit.com/join/nyucmmwtkx-saymyname002) which is hosting the API for crop recommendation
-- Find APK of android project = [link]()
+- Find APK of android project = [link](https://drive.google.com/file/d/1oz4rDE7mR3GTqYSByQpml0xftGPcAUSu/view?usp=sharing)
 - Feel free to see internals of app from repo / cloning repo.
+- Demo Video [Link](https://drive.google.com/file/d/1uhJdgKmB-p74CaHCH7WHpf3ZJhvCtPgl/view?usp=sharing) of our Application 
 
 
 ## Features
@@ -44,12 +45,12 @@ it's an API taking 7 parameters mainly weather info, soil information which farm
 - dataset from kaggle
 
 ## Screeshots Of Working Application
-![App Screenshot](/Agrilife/DemoImages/AgriLife5.jpg width="150" height="150")
-![App Screenshot](/Agrilife/DemoImages/AgriLife6.jpg)
-![App Screenshot](/Agrilife/DemoImages/AgriLife4.jpg)
-![App Screenshot](/Agrilife/DemoImages/AgriLife3.jpg)
-![App Screenshot](/Agrilife/DemoImages/AgriLife2.jpg)
-![App Screenshot](/Agrilife/DemoImages/AgriLife1.jpg)
+![App Screenshot](/DemoImages/AgriLife5.jpg )
+![App Screenshot](/DemoImages/AgriLife6.jpg)
+![App Screenshot](/DemoImages/AgriLife4.jpg)
+![App Screenshot](/DemoImages/AgriLife3.jpg)
+![App Screenshot](/DemoImages/AgriLife2.jpg)
+![App Screenshot](/DemoImages/AgriLife1.jpg)
 
 
 
