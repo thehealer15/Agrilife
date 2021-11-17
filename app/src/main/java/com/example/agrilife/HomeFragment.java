@@ -10,13 +10,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agrilife.model_classes.insuranceModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -51,6 +56,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         parentHolder =  inflater.inflate(R.layout.fragment_home, container, false);
+        setHasOptionsMenu(true);
         insurance_feed_recycler_view=parentHolder.findViewById(R.id.loan_feed);
         firebaseFirestore=FirebaseFirestore.getInstance();
 
@@ -123,5 +129,24 @@ public class HomeFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.options_menu, menu) ;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        boolean modi = false;
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(mContext,MainActivity.class));
+                modi = true;
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    return modi;
+    }
+
 
 }

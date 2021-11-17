@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
         bottomNavBar.setOnNavigationItemSelectedListener( navListner);
         current_user = FirebaseAuth.getInstance().getCurrentUser();
         if(current_user == null){
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this,newLogin.class));
         }
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
