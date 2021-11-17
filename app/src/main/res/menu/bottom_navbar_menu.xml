@@ -5,6 +5,11 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
+        android:id="@+id/financing"
+        android:title="Financing"
+        android:icon="@drawable/ic_money_lending"/>
+
+    <item
         android:id="@+id/advise"
         android:title="Advise"
         android:icon="@drawable/ic_advice"/>
@@ -12,4 +17,6 @@
         android:id="@+id/dashboard"
         android:title="Dashboard"
         android:icon="@drawable/ic_baseline_dashboard_24"/>
+
+
 </menu>

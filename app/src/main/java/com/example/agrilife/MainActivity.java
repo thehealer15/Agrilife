@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity{
                     selectedFragment = new DashBoard(); break;
                 case R.id.advise:
                     selectedFragment = new AdviseFragment();break;
-
+                case R.id.financing:
+                    selectedFragment = new FinancingFragment();break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.container,
                     selectedFragment).commit();
