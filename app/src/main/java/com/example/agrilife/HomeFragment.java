@@ -142,6 +142,13 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(mContext,MainActivity.class));
                 modi = true;
                 break;
+            case R.id.action_profile:
+                Fragment selectedFragment = new ProfileFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                        selectedFragment).commit();
+
+
+
             default:
                 return super.onOptionsItemSelected(item);
         }
