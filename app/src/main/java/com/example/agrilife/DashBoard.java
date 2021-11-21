@@ -2,6 +2,7 @@ package com.example.agrilife;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -193,7 +194,10 @@ public class DashBoard extends Fragment   {
         policy_opted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                opted_polices.setAdapter(adapter);
+                loan_opted.setTypeface(null,Typeface.NORMAL);
+                policy_opted.setTypeface(null, Typeface.BOLD);
+                opted_polices.setAdapter(adapter)
+                ;
             }
         });
 
@@ -232,6 +236,7 @@ public class DashBoard extends Fragment   {
                         Intent i = new Intent(mContext, LoanDetails.class);
                         try {
                             i.putExtra("model",  model);
+                            Toast.makeText(getActivity(), "modi here", Toast.LENGTH_SHORT).show();
                             startActivity(i);
 //                            finish();
                         }catch (Exception e){
@@ -250,7 +255,8 @@ public class DashBoard extends Fragment   {
             @Override
             public void onClick(View v) {
                 opted_polices.setAdapter(Loan_adapter);
-
+                loan_opted.setTypeface(null, Typeface.BOLD);
+                policy_opted.setTypeface(null,Typeface.NORMAL);
             }
         });
 
