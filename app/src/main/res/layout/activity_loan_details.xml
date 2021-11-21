@@ -6,5 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".LoanDetails">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="23dp">
+
+            <TextView
+                android:id="@+id/loanNameDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/loanAmountDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                /><TextView
+            android:id="@+id/interestRateDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            /><TextView
+            android:id="@+id/repaymentTenureLoanDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+            <TextView
+                android:id="@+id/Loan_alreadyApplied"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You have Already Opted for this Loan"
+                android:textAlignment="center"
+                android:textStyle="bold|italic"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible" />
+            <Button
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:id="@+id/Loan_apply"
+                android:text="Apply For Policy "
+                android:backgroundTint="@color/dark_blue"
+                app:rippleColor="@color/ripple_effect"/>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

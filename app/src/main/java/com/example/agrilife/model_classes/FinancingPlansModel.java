@@ -17,6 +17,14 @@ public class FinancingPlansModel implements Serializable {
     private Double aquision_periood ; // multiplier of returnp period in months
 
 
+
+    public FinancingPlansModel(int amount, String planName,Double interestRate,int returnPeriod) {
+        this.amount = amount;
+        this.planName = planName;
+        this.interestRate=interestRate;
+        this.returnPeriod_inMonths=returnPeriod;
+    }
+
     public FinancingPlansModel(int amount, String planName, Double farmerCreditScoreMultiplier, LoanCollateralClass collateral, Double interestRate, int returnPeriod_inMonths , Double aquision_periood) {
         this.amount = amount;
         this.planName = planName;

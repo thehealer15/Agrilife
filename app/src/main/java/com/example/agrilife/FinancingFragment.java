@@ -86,7 +86,6 @@ public class FinancingFragment extends Fragment {
                 holder.loanAmount.setText("Loan Amount : "+model.getAmount());
                 holder.interestRate.setText("Interest Rate :"+model.getInterestRate());
                 holder.tenureToReturn.setText("Repayment shall be done in "+model.getReturnPeriod_inMonths()+ " months");
-
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
