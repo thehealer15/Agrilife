@@ -23,7 +23,7 @@ import com.google.firestore.v1.WriteResult;
 public class RegisterUser extends AppCompatActivity {
 
 
-    private EditText name,mail , password1,password2 , phoneno ,address;
+    private EditText name,mail , password1,password2 , phoneno ,address,description,sector,aadharno,bankaccno,bankifsc;
     Button signup;
     private FirebaseAuth mAuth;
 
@@ -43,6 +43,13 @@ public class RegisterUser extends AppCompatActivity {
         mail = findViewById(R.id.email);
         phoneno = findViewById(R.id.phoneno);
         address = findViewById(R.id.address);
+        description = findViewById(R.id.edittextdescription);
+        sector = findViewById(R.id.edittextsector);
+        aadharno = findViewById(R.id.edittextaadharcard);
+        bankaccno = findViewById(R.id.edittextaccountno);
+        bankifsc =  findViewById(R.id.edittextifsc);
+
+
         firebaseFirestore=FirebaseFirestore.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +73,8 @@ public class RegisterUser extends AppCompatActivity {
                             if(newusername.isEmpty() || phoneno.getText().toString().isEmpty() || address.getText().toString().isEmpty() )
                                 Toast.makeText(getApplicationContext(),"Please Do not keep a Field Empty  ",Toast.LENGTH_SHORT).show();
                             else{
-                                createAccount(email,passwordstring1,newusername,phoneno.getText().toString(),address.getText().toString());
+                                User user = new User(newusername,email,passwordstring1,phoneno.getText().toString(),address.getText().toString(),"fornow",aadharno.getText().toString() ,bankaccno.getText().toString(),bankifsc.getText().toString(),sector.getText().toString(),description.getText().toString());
+                                createAccount(user);
                             }
                         }
                         else{
@@ -81,9 +89,10 @@ public class RegisterUser extends AppCompatActivity {
         });
     }
 
-    private void createAccount(String email, String password,String name,String phoneno , String address) {
+    private void createAccount(User userobj) {
         //[START create_user_with_email]
-
+        String email = userobj.getEmail();
+        String password = userobj.getPassword();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -91,8 +100,7 @@ public class RegisterUser extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             String userID= mAuth.getCurrentUser().getUid();
-                            User userobj = new User(name,email,password,phoneno,address,userID);
-
+                            userobj.setUid(userID);
                             firebaseFirestore.collection("USERS").document(userID).set(userobj);
                             // block on response if required
 //                            System.out.println("Update time : " + future.get().getUpdateTime());

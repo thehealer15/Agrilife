@@ -75,19 +75,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Pin Code"
-                android:id="@+id/ifsc">
-                <EditText
-                    android:id="@+id/editTextpincdoe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:text="413001"/>//add icon after height
-            </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -120,6 +107,43 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="" />//add icon after height
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aadhar Card Number"
+                android:id="@+id/aadhar">
+                <EditText
+                    android:id="@+id/editTextaadhar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text=""/>//add icon after height
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bank Account Number"
+                android:id="@+id/bankdetails">
+                <EditText
+                    android:id="@+id/editTextaccountnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text=""/>//add icon after height
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="IFSC Code"
+                android:id="@+id/bankifsc">
+                <EditText
+                    android:id="@+id/editTextifsccode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text=""/>//add icon after height
             </com.google.android.material.textfield.TextInputLayout>
 
 
