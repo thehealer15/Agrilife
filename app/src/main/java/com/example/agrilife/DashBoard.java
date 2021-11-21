@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agrilife.model_classes.FinancingPlansModel;
 import com.example.agrilife.model_classes.User;
 import com.example.agrilife.model_classes.insuranceModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -52,9 +53,13 @@ public class DashBoard extends Fragment   {
     Context mContext;
     Map<String,Object> userInfo;
     RecyclerView opted_polices;
-    private TextView profile_name,profile_email,profile_phone,profile_address;
+    private TextView profile_name,profile_email,profile_phone,profile_address,loan_opted,policy_opted;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter adapter;
+
+    private FirebaseFirestore Loan_firebaseFirestore;
+    private FirestoreRecyclerAdapter Loan_adapter;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -76,6 +81,8 @@ public class DashBoard extends Fragment   {
         profile_address=parentHolder.findViewById(R.id.profile_address);
         profile_phone=parentHolder.findViewById(R.id.profile_phone);
         profile_email=parentHolder.findViewById(R.id.profile_email);
+        loan_opted=parentHolder.findViewById(R.id.loan_opted);
+        policy_opted=parentHolder.findViewById(R.id.policy_opted);
         String uidi=FirebaseAuth.getInstance().getUid().toString();
         DocumentReference db = FirebaseFirestore.getInstance().collection("USERS").document(uidi);
         Checkout.preload(getContext());
@@ -183,6 +190,70 @@ public class DashBoard extends Fragment   {
         opted_polices.setHasFixedSize(true);
         opted_polices.setLayoutManager(new LinearLayoutManager(mContext));
         opted_polices.setAdapter(adapter);
+        policy_opted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opted_polices.setAdapter(adapter);
+            }
+        });
+
+
+
+        //Loan implements
+        Loan_firebaseFirestore=FirebaseFirestore.getInstance();
+
+        //Query
+        Query Loan_query=firebaseFirestore.collection("farmer_policies").document(FirebaseAuth.getInstance().getUid().toString()).collection("loan_opted");
+
+        //RecyclerOption
+        FirestoreRecyclerOptions<FinancingPlansModel> loan_options=new FirestoreRecyclerOptions.Builder<FinancingPlansModel>().
+                setQuery(Loan_query,FinancingPlansModel.class).build();
+
+
+        Loan_adapter=new FirestoreRecyclerAdapter<FinancingPlansModel, DashBoard.loanViewHolder >(loan_options){
+
+            @NonNull
+            @Override
+            public DashBoard.loanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.loan_cardview,parent,false);
+
+                return new DashBoard.loanViewHolder (view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull DashBoard.loanViewHolder  holder, int position, @NonNull FinancingPlansModel model) {
+                holder.planName.setText("Plan Name :" +model.getPlanName());
+                holder.loanAmount.setText("Loan Amount : "+model.getAmount());
+                holder.interestRate.setText("Interest Rate :"+model.getInterestRate());
+                holder.tenureToReturn.setText("Repayment shall be done in "+model.getReturnPeriod_inMonths()+ " months");
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(mContext, LoanDetails.class);
+                        try {
+                            i.putExtra("model",  model);
+                            startActivity(i);
+//                            finish();
+                        }catch (Exception e){
+                            Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+            }
+        };
+
+        opted_polices.setHasFixedSize(true);
+        opted_polices.setLayoutManager(new LinearLayoutManager(mContext));
+
+        loan_opted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opted_polices.setAdapter(Loan_adapter);
+
+            }
+        });
+
 
 
         return  parentHolder;
@@ -199,16 +270,33 @@ public class DashBoard extends Fragment   {
 
     }
 
+    private class loanViewHolder extends RecyclerView.ViewHolder {
+        private TextView planName ,loanAmount , interestRate , tenureToReturn;
+        public loanViewHolder(@NonNull View itemView) {
+            super(itemView);
+            planName = itemView.findViewById(R.id.loan_name);
+            loanAmount = itemView.findViewById(R.id.loan_amount);
+            interestRate = itemView.findViewById(R.id.interst_rate);
+            tenureToReturn = itemView.findViewById(R.id.repayment_tenure);
+
+        }
+
+    }
+
+
+
     @Override
     public void onStart() {
         super.onStart();
         adapter.startListening();
+        Loan_adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+        Loan_adapter.stopListening();;
     }
 
 
