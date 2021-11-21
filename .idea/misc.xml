@@ -22,16 +22,20 @@
         <entry key="..\:/Projects/AgriLife/Agrilife/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Projects/AgriLife/Agrilife/app/src/main/res/layout/insurance_feed_cardview.xml" value="0.1" />
         <entry key="..\:/Projects/AgriLife/Agrilife/app/src/main/res/layout/opted_insurance_cardview.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.290625" />
         <entry key="app/src/main/res/drawable/textview_bg.xml" value="0.2859375" />
         <entry key="app/src/main/res/layout/activity_loan_details.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_loan_repayment.xml" value="0.36793327154772937" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="app/src/main/res/layout/activity_payment.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/fragment_dash_board.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/layout/fragment_financing.xml" value="0.27149557060969254" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12864583333333332" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.176" />
         <entry key="app/src/main/res/layout/insurance_feed_cardview.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/loan_cardview.xml" value="0.2713541666666667" />
+        <entry key="app/src/main/res/layout/loan_click_bottom_sheet.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/layout/opted_insurance_cardview.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/layout/plan_details_bottom_sheet.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/menu/bottom_navbar_menu.xml" value="0.264" />

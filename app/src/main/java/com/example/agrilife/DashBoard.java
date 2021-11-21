@@ -23,6 +23,7 @@ import com.example.agrilife.model_classes.insuranceModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -233,15 +234,30 @@ public class DashBoard extends Fragment   {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(mContext, LoanDetails.class);
-                        try {
-                            i.putExtra("model",  model);
-                            Toast.makeText(getActivity(), "modi here", Toast.LENGTH_SHORT).show();
-                            startActivity(i);
-//                            finish();
-                        }catch (Exception e){
-                            Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+                        bottomSheetDialog.setContentView(R.layout.loan_click_bottom_sheet);
+                        bottomSheetDialog.setCanceledOnTouchOutside(true);
+                        Button loan_plan_details = bottomSheetDialog.findViewById(R.id.loan_plan_details_btm_sheet),
+                                loan_pay_sip = bottomSheetDialog.findViewById(R.id.pay_installment); 
+                        
+                        loan_plan_details.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(getActivity(), "Under Construction", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        
+                        loan_pay_sip.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    startActivity(new Intent(getActivity(),LoanRepaymentActivity.class));
+                                }catch (Exception e){
+                                    Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        bottomSheetDialog.show();
 
                     }
                 });
