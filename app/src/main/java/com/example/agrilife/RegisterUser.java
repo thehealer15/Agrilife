@@ -23,7 +23,8 @@ import com.google.firestore.v1.WriteResult;
 public class RegisterUser extends AppCompatActivity {
 
 
-    private EditText name,mail , password1,password2 , phoneno ,address,description,sector,aadharno,bankaccno,bankifsc;
+    private EditText name,mail , password1,password2 , phoneno ,address,aadharno,bankaccno,bankifsc;
+    //    private EditText description,sector;
     Button signup;
     private FirebaseAuth mAuth;
 
@@ -43,8 +44,8 @@ public class RegisterUser extends AppCompatActivity {
         mail = findViewById(R.id.email);
         phoneno = findViewById(R.id.phoneno);
         address = findViewById(R.id.address);
-        description = findViewById(R.id.edittextdescription);
-        sector = findViewById(R.id.edittextsector);
+//        description = findViewById(R.id.edittextdescription);
+//        sector = findViewById(R.id.edittextsector);
         aadharno = findViewById(R.id.edittextaadharcard);
         bankaccno = findViewById(R.id.edittextaccountno);
         bankifsc =  findViewById(R.id.edittextifsc);
@@ -73,7 +74,7 @@ public class RegisterUser extends AppCompatActivity {
                             if(newusername.isEmpty() || phoneno.getText().toString().isEmpty() || address.getText().toString().isEmpty() )
                                 Toast.makeText(getApplicationContext(),"Please Do not keep a Field Empty  ",Toast.LENGTH_SHORT).show();
                             else{
-                                User user = new User(newusername,email,passwordstring1,phoneno.getText().toString(),address.getText().toString(),"fornow",aadharno.getText().toString() ,bankaccno.getText().toString(),bankifsc.getText().toString(),sector.getText().toString(),description.getText().toString());
+                                User user = new User(newusername,email,passwordstring1,phoneno.getText().toString(),address.getText().toString(),"fornow",aadharno.getText().toString() ,bankaccno.getText().toString(),bankifsc.getText().toString()," "," ");
                                 createAccount(user);
                             }
                         }

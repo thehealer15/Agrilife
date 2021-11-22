@@ -81,35 +81,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/edittextdescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            android:layout_marginTop="10dp"
-            android:inputType="textCapWords"
-
-            android:drawableLeft="@drawable/ic_action_per"
-            android:ems="10"
-            android:hint=" Description "
-            android:textColorHint="#5C5656"
-            android:paddingLeft="10dp"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:id="@+id/edittextsector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="10dp"
-            android:inputType="textCapWords"
-
-            android:drawableLeft="@drawable/ic_action_per"
-            android:ems="10"
-            android:hint=" Sector "
-            android:textColorHint="#5C5656"
-            android:paddingLeft="10dp"
-            android:textColor="@color/white" />
 
 
         <EditText
@@ -118,7 +90,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="10dp"
-            android:inputType="textCapWords"
+            android:inputType="number"
 
             android:drawableLeft="@drawable/ic_action_per"
             android:ems="10"
@@ -133,7 +105,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="10dp"
-            android:inputType="textCapWords"
+            android:inputType="number"
 
             android:drawableLeft="@drawable/ic_action_per"
             android:ems="10"
@@ -148,11 +120,11 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="10dp"
-            android:inputType="textCapWords"
+            android:inputType="text"
 
             android:drawableLeft="@drawable/ic_action_per"
             android:ems="10"
-            android:hint="Bank Account Number"
+            android:hint="IFSC Code"
             android:textColorHint="#5C5656"
             android:paddingLeft="10dp"
             android:textColor="@color/white" />
@@ -192,12 +164,13 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_weight="0.25"
+        android:layout_marginTop="30dp"
         android:layout_height="0dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/button"
+        android:backgroundTint="@color/dark_blue"
+
         android:text="Register" />
 
     </LinearLayout>
