@@ -52,43 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        phoneNumber = findViewById(R.id.mobile_number);
-        generateOtpBtn = findViewById(R.id.generate_otp);
-        mAuth = FirebaseAuth.getInstance();
-        otpEditText = findViewById(R.id.otpEditText);
-        verifyOTPBtn = findViewById(R.id.verify_otp);
-        try{getMobileNumber();}
-        catch (Exception e){
-            Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
-        }
-        generateOtpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(phoneNumber.getEditText().getText().toString().length() ==12) {
-                    otpEditText.setVisibility(View.VISIBLE);
-                    verifyOTPBtn.setVisibility(View.VISIBLE);
-                    generateOtpBtn.setVisibility(View.GONE);
-                    phoneNumber.setVisibility(View.GONE);
-
-                    // here is authentication
-                    sendVerificationCode("+"+phoneNumber.getEditText().getText().toString());
-                }
-                else{
-                    Toast.makeText(getApplicationContext() , "Enter 12 digits", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        verifyOTPBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(otpEditText.getText().toString().isEmpty()){
-                    otpEditText.setError("enter something");
-                }else{
-                    verifyCode(otpEditText.getText().toString());
-                }
-            }
-        });
-
+        startActivity(new Intent(this,MainActivity.class));
+finish();
     }
     private void signInWithCredential(PhoneAuthCredential credential) {
         // inside this method we are checking if

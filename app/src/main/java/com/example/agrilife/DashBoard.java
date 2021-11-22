@@ -243,7 +243,7 @@ public class DashBoard extends Fragment   {
                         loan_plan_details.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(getActivity(), "Under Construction", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Under Construction :(", Toast.LENGTH_SHORT).show();
                             }
                         });
                         
